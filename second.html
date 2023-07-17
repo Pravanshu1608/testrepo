@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Control View</title>
+    <link rel="stylesheet" href="global.css">
+    <script src="script.js"></script>
+</head>
+
+<body>
+    <nav>
+        <div class="navbar">
+            <div class="Logo">
+                <img src="Screenshot 2023-07-16 234429.png" width="60%" height="30" alt="">
+            </div>
+            <div class="logo">Prototype for IT Audit Risk Management</div>
+        </div>
+    </nav>
+    <div class="box">
+        <div class="dropdown">
+            <span class="dropdown-title">Processes</span>
+        </div>
+        <div class="dropdown-2">
+            <span class="dropdown-title2"></span>
+        </div>
+    </div>
+    <div class="check-box">
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck1">
+            <label class="form-check-label" for="defaultCheck1"></label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck2">
+            <label class="form-check-label" for="defaultCheck2"></label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck3">
+            <label class="form-check-label" for="defaultCheck3"></label>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" value="" id="defaultCheck4">
+            <label class="form-check-label" for="defaultCheck4"></label>
+        </div>
+    </div>
+    <div class="container">
+        <button class="btn btn1">View Control</button>
+        <button class="btn btn2">Back</button>
+    </div>
+
+    <table>
+        <tbody class="table-body"></tbody>
+    </table>
+
+    <script>
+        const urlParams = new URLSearchParams(window.location.search);
+        const selectedButton = urlParams.get('selectedButton');
+
+        // Update the content of dropdown-2
+        const dropdownTitle2 = document.querySelector('.dropdown-title2');
+        dropdownTitle2.textContent = selectedButton;
+
+        // Update the checkbox labels based on the selected button
+        const checkboxLabels = document.querySelectorAll('.form-check-label');
+        checkboxLabels.forEach((label, index) => {
+            if (selectedButton === 'Logical Security') {
+                label.textContent = 'Risk - ' + (index + 1) + ': This is an example of how Risk ' + (index + 1) + ' should be formatted in a prototype. Edit for changes.';
+            } else if (selectedButton === 'Change Management') {
+                label.textContent = 'Change - ' + (index + 1) + ': This is an example of how Change ' + (index + 1) + ' should be formatted in a prototype. Edit for changes.';
+            }
+        });
+
+        const viewControlBtn = document.querySelector('.btn1');
+        viewControlBtn.addEventListener('click', function () {
+            const checkboxes = document.querySelectorAll('.form-check-input');
+            const tableBody = document.querySelector('.table-body');
+
+            // Clear previous table rows
+            tableBody.innerHTML = '';
+
+            // Create table header row
+            const tableHeader = document.createElement('tr');
+            const columnName1 = document.createElement('th');
+            const columnName2 = document.createElement('th');
+            columnName1.textContent = 'Control Name';
+            columnName2.textContent = 'Control Description';
+            tableHeader.appendChild(columnName1);
+            tableHeader.appendChild(columnName2);
+            tableBody.appendChild(tableHeader);
+
+            let hasCheckedCheckbox = false;
+
+            checkboxes.forEach((checkbox, index) => {
+                if (checkbox.checked) {
+                    const row = document.createElement('tr');
+                    const checkboxName = document.createElement('td');
+                    const description = document.createElement('td');
+
+                    let name = checkboxLabels[index].textContent.split(':')[0].trim();
+                    let desc = 'Example ' + ((index % 4) + 1);
+
+                    if (selectedButton === 'Logical Security') {
+                        name = name.replace('Risk', 'Control');
+                    } else if (selectedButton === 'Change Management') {
+                        name = name.replace('Change', 'Factor');
+                    }
+
+                    checkboxName.textContent = name;
+                    description.textContent = desc;
+                    row.appendChild(checkboxName);
+                    row.appendChild(description);
+                    tableBody.appendChild(row);
+
+                    hasCheckedCheckbox = true;
+                }
+            });
+
+            // Hide the table if no checkboxes are checked
+            const table = document.querySelector('table');
+            if (!hasCheckedCheckbox) {
+                table.style.display = 'none';
+            } else {
+                table.style.display = ''; // Reset the display property
+            }
+        });
+
+        const back = document.querySelector('.btn2');
+        back.addEventListener('click', function () {
+            window.location.href = 'index.html';
+        });
+    </script>
+</body>
+
+</html>

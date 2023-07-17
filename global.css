@@ -1,0 +1,202 @@
+@import url('http://fonts.googleapis.com/css2?family=Poppins:wght@600&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    width: 100%;
+    background: #f3f3ff;
+    overflow-y: auto;
+}
+
+.box {
+    position: relative;
+    width: 550px;
+    height: 550px;
+}
+
+nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    height: 60px;
+    display: flex;
+    align-items: center;
+    z-index: 999;
+    
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #1b1b1b;
+    font-size: 20px;
+    padding: 0 20px;
+}
+
+.Logo img {
+    vertical-align: middle;
+    height: 60px;
+    width: auto;
+}
+
+.container {
+    position: sticky;
+    top: 70px;
+    background-color: #f3f3ff;
+    padding: 20px;
+
+    z-index: 99;
+}
+
+.btn {
+    border: 1px solid #1b1b1b;
+    background: none;
+    padding: 10px 20px;
+    font-size: 20px;
+    font-family: 'Poppins', sans-serif;
+    cursor: pointer;
+    margin: 10px;
+    transition: 0.8s;
+    position: relative;
+    overflow: hidden;
+}
+
+.btn1,
+.btn2 {
+    color: #1b1b1b;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border-radius: 10px;
+}
+
+.btn1:hover,
+.btn2:hover {
+    color: #fff;
+}
+
+.btn::before {
+    content: "";
+    position: absolute;
+    left: 0;
+    width: 100%;
+    height: 0%;
+    background: #3498db;
+    z-index: -1;
+    transition: 0.8s;
+}
+
+.btn1::before {
+    top: 0;
+    border-radius: 0 0 50% 50%;
+}
+
+.btn2::before {
+    bottom: 0;
+    border-radius: 50% 50% 0 0;
+}
+
+.btn1:hover::before,
+.btn2:hover::before {
+    height: 180%;
+}
+
+.table-container {
+    margin-top: 20px;
+    max-height: calc(100vh - 190px);
+    overflow-y: auto;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid #000;
+}
+
+th,
+td {
+    padding: 12px 15px;
+    text-align: left;
+}
+
+th {
+    background-color: #3498db;
+    color: #fff;
+}
+
+tr:nth-child(even) {
+    background-color: #f8f8f8;
+}
+
+tr:hover {
+    background-color: #f1f1f1;
+}
+
+.box {
+    position: relative;
+    width: 550px;
+    height: 100%;
+
+}
+
+.dropdown {
+    position: relative;
+    width: 100%;
+    height: 60px;
+    background: #7f0099;
+    color: #fff;
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+}
+
+.dropdown-2 {
+    position: relative;
+    width: 100%;
+    height: 60px;
+    margin-top: 5px;
+    background: #b981c5;
+    color: #d5d5d0;
+    font-size: 22px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 5px;
+    cursor: pointer;
+    box-shadow: 0 5px 10px rgba(0, 0, 0, .1);
+}
+
+
+table {
+    width: 100%;
+    max-width: 550px; /* Adjust the maximum width as needed */
+    margin: 0 auto; /* Center the table horizontally */
+    border-collapse: collapse;
+    background-color: #fff;
+    box-shadow: 0 0 20px rgba(0, 0, 0, 0.1);
+    border: 1px solid #000;
+}
+
+.check-box {
+    margin-top: 2%;
+    font-size: 20px;
+}
+

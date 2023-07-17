@@ -1,0 +1,2 @@
+1. index.html calls script.js which has the dropdown logic. style.css contains the css.
+2. second.html has inline js code below and it calls the global.css file for styling.
